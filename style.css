@@ -40,6 +40,7 @@
 body {
   margin: 0px;
   font-family: "Montserrat", sans-serif;
+
   cursor: default;
 }
 a {
@@ -51,6 +52,12 @@ ul {
 }
 ol {
   padding-left: 0px;
+}
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 /* Typography */
 
@@ -85,7 +92,10 @@ p {
 /* Navbar */
 #navbar {
   display: flex;
-  padding: 8px;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  padding: 4px;
   justify-content: space-between;
   background-color: var(--color-white);
   align-items: center;
@@ -118,4 +128,31 @@ p {
 .navbar__menu__item:hover {
   background-color: var(--color-purple);
   transition: all 1s ease;
+}
+
+/* Home */
+#home {
+  background: center/cover no-repeat url("imgs/background.png");
+  padding: 40px;
+  text-align: center;
+}
+.home__avatar {
+  width: 250px;
+  height: 250px;
+}
+#home__contact {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  margin: 24px;
+  background-color: var(--color-purple);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+}
+
+#home__contact:hover {
+  background-color: var(--color-aquablue);
+  transition: all 300ms ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
