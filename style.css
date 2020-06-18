@@ -113,6 +113,7 @@ p {
   justify-content: space-between;
   background-color: var(--color-white);
   align-items: center;
+  z-index: 1;
   color: var(--color-dark-grey);
 }
 
@@ -186,9 +187,9 @@ p {
   border-radius: 50%;
   margin: auto;
 }
-.major__icon i:hover {
-  color: var(--color-dark-aquablue);
-  transform: scale(1.1);
+.major__icon:hover {
+  color: var(--color-white);
+  background-color: var(--color-dark-aquablue);
   transition: all var(--animation-duration) ease-in-out;
 }
 .major__title {
@@ -266,4 +267,71 @@ p {
 .skill__value {
   height: 2px;
   background-color: var(--color-purple);
+}
+
+/* My Works */
+.work__categories {
+  margin: 40px;
+}
+.category__btn {
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-purple);
+}
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-purple);
+  color: white;
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.project img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+.project {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+  position: relative;
+  background-color: var(--color-light-white);
+}
+.project:hover .project__description {
+  opacity: 80%;
+  transition: all var(--animation-duration) ease-in;
+}
+.project__description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+.project__description h3 {
+  color: var(--color-white);
+  font-weight: var(--weight-bold);
+}
+
+.project__description h3:after {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-dark-white);
+  display: block;
+  margin: auto;
+  margin-top: 8px;
 }
