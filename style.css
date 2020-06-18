@@ -335,3 +335,28 @@ p {
   margin: auto;
   margin-top: 8px;
 }
+#contact {
+  background-color: var(--color-purple);
+}
+
+.contact__title,
+.contact__email,
+.contact__links i,
+.contact__rights {
+  color: var(--color-white);
+}
+.contact__title {
+  margin: 32px 0px;
+}
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0px;
+}
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-dark-aquablue);
+  transition: all var(--animation-duration) ease-in;
+}
+.contact__rights {
+  font-size: var(--font-micro);
+}
