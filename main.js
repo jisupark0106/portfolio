@@ -13,6 +13,14 @@ document.addEventListener(`scroll`, () => {
 
 // navbar menu -- section 이동
 
+//scroll section function
+function scrollToSection(selector) {
+  const section = document.querySelector(selector);
+  window.scrollTo({
+    top: section.offsetTop - navbarHeight + 10,
+    behavior: `smooth`,
+  });
+}
 //use data-set
 const navbarMenu = document.querySelector(`.navbar__menu`);
 const contactMe = document.getElementById(`home__contact`);
@@ -29,11 +37,11 @@ contactMe.addEventListener(`click`, () => {
   scrollToSection(`#contact`);
 });
 
-//scroll section function
-function scrollToSection(selector) {
-  const section = document.querySelector(selector);
-  window.scrollTo({
-    top: section.offsetTop - navbarHeight + 10,
-    behavior: `smooth`,
-  });
-}
+// home scroll할때 transparent 설정
+const home = document.querySelector(`.home__contents`);
+const homeHeight = home.offsetHeight;
+document.addEventListener(`scroll`, () => {
+  if (homeHeight - window.scrollY > 0) {
+    home.style.opacity = (homeHeight - window.scrollY) / 604;
+  }
+});
