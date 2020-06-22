@@ -45,3 +45,16 @@ document.addEventListener(`scroll`, () => {
     home.style.opacity = (homeHeight - window.scrollY) / 604;
   }
 });
+
+// arrow button
+const arrowBtn = document.querySelector(`.arrow__up`);
+document.addEventListener(`scroll`, () => {
+  if (window.scrollY > 600) {
+    arrowBtn.classList.add(`show`);
+  } else {
+    arrowBtn.classList.remove(`show`);
+  }
+});
+arrowBtn.addEventListener(`click`, () => {
+  scrollToSection(`#home`);
+});
