@@ -21,18 +21,19 @@ navbarMenu.addEventListener(`click`, (event) => {
   const link = target.dataset.link;
 
   if (link == null) return;
-  const section = document.querySelector(link);
-  window.scrollTo({
-    top: section.offsetTop - navbarHeight + 10,
-    behavior: `smooth`,
-  });
+  scrollToSection(link);
 });
 
 //Handle Contact me button
 contactMe.addEventListener(`click`, () => {
-  const contact = document.querySelector(`#contact`);
+  scrollToSection(`#contact`);
+});
+
+//scroll section function
+function scrollToSection(selector) {
+  const section = document.querySelector(selector);
   window.scrollTo({
-    top: contact.offsetTop - navbarHeight + 10,
+    top: section.offsetTop - navbarHeight + 10,
     behavior: `smooth`,
   });
-});
+}
