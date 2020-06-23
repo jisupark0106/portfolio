@@ -21,17 +21,22 @@ document.addEventListener(`scroll`, () => {
 //scroll section function
 function scrollToSection(selector) {
   const section = document.querySelector(selector);
-  window.scrollTo({
-    top: section.offsetTop - navbarHeight + 10,
-    behavior: `smooth`,
-  });
+  if (matchMedia("screen and (max-width: 768px)")) {
+    window.scrollTo({
+      top: section.offsetTop,
+      behavior: `smooth`,
+    });
+  } else {
+    window.scrollTo({
+      top: section.offsetTop - navbarHeight + 10,
+      behavior: `smooth`,
+    });
+  }
 }
 //use data-set
 const navbarMenu = document.querySelector(`.navbar__menu`);
 const contactMe = document.getElementById(`home__contact`);
 navbarMenu.addEventListener(`click`, (event) => {
-  const prevMenuItem = document.querySelector(`.navbar__menu__item.active`);
-
   const target = event.target;
   const link = target.dataset.link;
 
@@ -55,8 +60,13 @@ contactMe.addEventListener(`click`, () => {
 const home = document.querySelector(`.home__contents`);
 const homeHeight = home.offsetHeight;
 document.addEventListener(`scroll`, () => {
-  if (homeHeight - window.scrollY > 0) {
-    home.style.opacity = (homeHeight - window.scrollY) / 604;
+  //mobile version
+  if (matchMedia("screen and (max-width: 768px)")) {
+    home.style.opacity = 1;
+  } else {
+    if (homeHeight - window.scrollY > 0) {
+      home.style.opacity = (homeHeight - window.scrollY) / 604;
+    }
   }
 });
 
