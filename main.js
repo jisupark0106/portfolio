@@ -2,6 +2,11 @@
 const navbar = document.getElementById(`navbar`);
 const navbarHeight = navbar.offsetHeight;
 
+//button active
+function btnActive(prevSelector, target) {
+  prevSelector.classList.remove(`active`);
+  target.classList.add(`active`);
+}
 // navbar top일 때 bgcolor = transparent
 document.addEventListener(`scroll`, () => {
   if (window.scrollY < navbarHeight) {
@@ -25,11 +30,14 @@ function scrollToSection(selector) {
 const navbarMenu = document.querySelector(`.navbar__menu`);
 const contactMe = document.getElementById(`home__contact`);
 navbarMenu.addEventListener(`click`, (event) => {
+  const prevMenuItem = document.querySelector(`.navbar__menu__item.active`);
+
   const target = event.target;
   const link = target.dataset.link;
 
   if (link == null) return;
   scrollToSection(link);
+  btnActive(prevMenuItem, target);
 });
 
 //Handle Contact me button
@@ -63,17 +71,13 @@ arrowBtn.addEventListener(`click`, () => {
 const workBtnContainer = document.querySelector(`.work__categories`);
 const projectContainer = document.querySelector(`.work__projects`);
 const projects = document.querySelectorAll(`.project`);
-const categoryBtn = document.querySelectorAll(`.category__btn`);
 workBtnContainer.addEventListener(`click`, (event) => {
   const target = event.target;
   const filter = target.dataset.filter;
 
-  categoryBtn.forEach((category) => {
-    if (category == target) category.classList.add(`active`);
-    else category.classList.remove(`active`);
-  });
+  const prevCategoryBtn = document.querySelector(`.category__btn.active`);
+  btnActive(prevCategoryBtn, target);
 
-  console.log(filter);
   if (filter == null) return;
   projectContainer.classList.add(`ani-out`);
 
