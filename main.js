@@ -38,6 +38,13 @@ navbarMenu.addEventListener(`click`, (event) => {
   if (link == null) return;
   scrollToSection(link);
   btnActive(prevMenuItem, target);
+  navbarMenu.classList.add(`hide`);
+});
+
+// Mobile Navbar toggle Button
+const navbarToggleBtn = document.querySelector(`.navbar__toggle-btn`);
+navbarToggleBtn.addEventListener(`click`, () => {
+  navbarMenu.classList.toggle(`hide`);
 });
 
 //Handle Contact me button
