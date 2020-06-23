@@ -58,3 +58,33 @@ document.addEventListener(`scroll`, () => {
 arrowBtn.addEventListener(`click`, () => {
   scrollToSection(`#home`);
 });
+
+//Projects
+const workBtnContainer = document.querySelector(`.work__categories`);
+const projectContainer = document.querySelector(`.work__projects`);
+const projects = document.querySelectorAll(`.project`);
+const categoryBtn = document.querySelectorAll(`.category__btn`);
+workBtnContainer.addEventListener(`click`, (event) => {
+  const target = event.target;
+  const filter = target.dataset.filter;
+
+  categoryBtn.forEach((category) => {
+    if (category == target) category.classList.add(`active`);
+    else category.classList.remove(`active`);
+  });
+
+  console.log(filter);
+  if (filter == null) return;
+  projectContainer.classList.add(`ani-out`);
+
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter == "*" || project.dataset.filter == filter) {
+        project.classList.remove(`invisible`);
+      } else {
+        project.classList.add(`invisible`);
+      }
+    });
+    projectContainer.classList.remove(`ani-out`);
+  }, 300);
+});

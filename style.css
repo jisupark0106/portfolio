@@ -15,6 +15,7 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-purple: #d7a3e6;
+  --color-light-purple: #fce8fc;
   --color-aquablue: #8aced1;
   --color-light-aquablue: #ceeced;
   --color-dark-aquablue: #03989e;
@@ -321,17 +322,26 @@ p {
 .category__btn:hover {
   background-color: var(--color-purple);
   color: white;
+  transition: all var(--animation-duration) ease-in-out;
 }
-
 .work__projects {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  transition: all var(--animation-duration) ease-out;
+}
+
+.work__projects.ani-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(10px);
 }
 .project img {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
+}
+.project.invisible {
+  display: none;
 }
 .project {
   display: flex;
@@ -340,6 +350,8 @@ p {
   height: 250px;
   margin: 2px;
   position: relative;
+  transition: all var(--animation-duration) ease-in-out;
+
   background-color: var(--color-light-white);
 }
 .project:hover .project__description {
@@ -363,7 +375,6 @@ p {
   color: var(--color-white);
   font-weight: var(--weight-bold);
 }
-
 .project__description h3:after {
   content: "";
   width: 25px;
