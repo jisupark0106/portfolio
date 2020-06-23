@@ -37,7 +37,6 @@ navbarMenu.addEventListener(`click`, (event) => {
 
   if (link == null) return;
   scrollToSection(link);
-  btnActive(prevMenuItem, target);
   navbarMenu.classList.add(`hide`);
 });
 

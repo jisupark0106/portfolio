@@ -416,14 +416,32 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+  }
+  .section {
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+  }
   .navbar__toggle-btn {
     display: block;
+    right: 16px;
+    top: 14px;
   }
   #navbar {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
     background-color: var(--color-white);
+  }
+  .navbar__logo {
+    align-items: center;
   }
   #navbar.scroll--white {
     padding: 8px;
@@ -442,14 +460,24 @@ p {
   }
   .about__majors {
     flex-direction: column;
+    margin: 20px;
   }
   .major {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   .skillset {
     flex-direction: column;
   }
   .project {
     flex-grow: 1;
+  }
+  .category__btn {
+    padding: 8px;
+  }
+  .arrow__up {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    right: 16px;
   }
 }
