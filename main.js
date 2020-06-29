@@ -21,7 +21,7 @@ document.addEventListener(`scroll`, () => {
 //scroll section function
 function scrollToSection(selector) {
   const section = document.querySelector(selector);
-  if (matchMedia("screen and (max-width: 768px)")) {
+  if (matchMedia("screen and (max-width: 768px)").matches) {
     window.scrollTo({
       top: section.offsetTop,
       behavior: `smooth`,
@@ -61,7 +61,7 @@ const home = document.querySelector(`.home__contents`);
 const homeHeight = home.offsetHeight;
 document.addEventListener(`scroll`, () => {
   //mobile version
-  if (matchMedia("screen and (max-width: 768px)")) {
+  if (matchMedia("screen and (max-width: 768px)").matches) {
     home.style.opacity = 1;
   } else {
     if (homeHeight - window.scrollY > 0) {

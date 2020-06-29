@@ -383,7 +383,6 @@ p {
   content: "";
   width: 25px;
   height: 2px;
-  transform: translateX(-50%);
   background-color: var(--color-dark-white);
   display: block;
   margin: auto;
@@ -474,8 +473,6 @@ p {
     padding: 8px;
   }
   .arrow__up {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+    display: none;
   }
 }
