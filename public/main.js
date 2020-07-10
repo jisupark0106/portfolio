@@ -2,6 +2,7 @@
 const navbar = document.getElementById(`navbar`);
 const navbarHeight = navbar.offsetHeight;
 
+console.log(`main.js`);
 //button active
 function btnActive(prevSelector, target) {
   prevSelector.classList.remove(`active`);
@@ -82,29 +83,57 @@ document.addEventListener(`scroll`, () => {
 arrowBtn.addEventListener(`click`, () => {
   scrollToSection(`#home`);
 });
-
-//Projects
-const workBtnContainer = document.querySelector(`.work__categories`);
-const projectContainer = document.querySelector(`.work__projects`);
-const projects = document.querySelectorAll(`.project`);
-workBtnContainer.addEventListener(`click`, (event) => {
-  const target = event.target;
-  const filter = target.dataset.filter;
-
-  const prevCategoryBtn = document.querySelector(`.category__btn.active`);
-  btnActive(prevCategoryBtn, target);
-
-  if (filter == null) return;
-  projectContainer.classList.add(`ani-out`);
-
-  setTimeout(() => {
-    projects.forEach((project) => {
-      if (filter == "*" || project.dataset.filter == filter) {
-        project.classList.remove(`invisible`);
-      } else {
-        project.classList.add(`invisible`);
-      }
+//이래서 프로미스가 필요하군요
+function getData(callback) {
+  return new Promise(function (resolve, reject) {
+    $(document).ready(function (response) {
+      $.ajax({
+        url: "project_list.json",
+        dataType: "json",
+        success: function (data) {
+          $(data.projects).each(function (index, value) {
+            var record = `
+              <a href="${value.url}" class="project" target="blank" data-filter="${value.filter}">
+            <img src="imgs/projects/${value.img}" alt="${value.title}" />
+            <div class="project__description">
+              <h3>${value.title}</h3>
+              <span>${value.description}</span>
+            </div>
+          </a>`;
+            $(".work__projects").append(record);
+            resolve(response);
+            console.log(value.filter);
+          });
+        },
+      });
     });
-    projectContainer.classList.remove(`ani-out`);
-  }, 300);
+  });
+}
+
+getData().then(function () {
+  //Projects
+  const workBtnContainer = document.querySelector(`.work__categories`);
+  const projectContainer = document.querySelector(`.work__projects`);
+  const projects = document.querySelectorAll(`.project`);
+  workBtnContainer.addEventListener(`click`, (event) => {
+    const target = event.target;
+    const filter = target.dataset.filter;
+    console.log(projects);
+    const prevCategoryBtn = document.querySelector(`.category__btn.active`);
+    btnActive(prevCategoryBtn, target);
+
+    if (filter == null) return;
+    projectContainer.classList.add(`ani-out`);
+
+    setTimeout(() => {
+      projects.forEach((project) => {
+        if (filter == "*" || project.dataset.filter.includes(filter)) {
+          project.classList.remove(`invisible`);
+        } else {
+          project.classList.add(`invisible`);
+        }
+      });
+      projectContainer.classList.remove(`ani-out`);
+    }, 300);
+  });
 });

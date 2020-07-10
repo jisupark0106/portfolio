@@ -1,0 +1,18 @@
+{
+  "projects": [
+    {
+      "url": "https://github.com/jisupark0106/portfolio",
+      "filter": "front-end",
+      "img": "portfolio_project.png",
+      "title": "Portfolio Website",
+      "description": "HTML, CSS, Javascript<br>반응형 웹페이지 제작"
+    },
+    {
+      "url": "https://github.com/jisupark0106/Don-t-worry-Dog-happy",
+      "filter": "mobile, back-end",
+      "img": "IoT_prjt.png",
+      "title": "반려견을 위한 IoT care System",
+      "description": "Android Application 제작<br>Node.js Server 제작<br>(졸업 프로젝트)"
+    }
+  ]
+}
