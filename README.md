@@ -1,6 +1,12 @@
 # portfolio
-
 Jisu's portfolio
+
+### frontend part
+html, css, javascript
+
+### server part
+node.js
+
 
 ### node.js 서버 구축
 
@@ -31,3 +37,4 @@ img, css asset -> public 폴더 이동
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 ```
+ 
